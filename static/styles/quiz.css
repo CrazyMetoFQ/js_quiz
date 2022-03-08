@@ -2,159 +2,155 @@ html,
 body {
     height: 100%;
     width: 100%;
-
-    scroll-behavior: auto;
-
-
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 body {
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: lightgray;
     margin: 5rem;
-
-
+    user-select: none;
 }
 
-#top-spacer{
-
+#top-spacer {
     padding: 1rem;
     margin: 1rem;
 }
 
-
-#main-container {
-    background-color: blanchedalmond;
-    padding: 2rem;
-    margin: 5rem;
+#header {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 5vh;
+    width: 99%;
+    /*margin-bottom: 10px;*/
+    background-color: darkslategray;
+    color: white;
+    padding: 1rem;
+    font-size: 2rem;
+    /*border-top: thin slategray solid;*/
+    border-bottom: thick gray outset;
 }
 
-#title {
+#header-text-2 {
+    background-color: rgb(247, 148, 0);
+    border-radius: 1rem;
+    padding: .5rem;
+}
+
+#top-container {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 99vw;
+    background-color: cornflowerblue;
+    overflow-x: hidden;
+}
+
+#form-custom {
+    display: block;
+    /*align-items: center;
+    justify-content: center;*/
+    flex-direction: column;
+    flex-basis: 90vw;
+    flex-grow: 0;
+    padding: 2rem;
+    overflow: hidden;
+    background-color: pink;
+}
+
+#question-id {
+    font-size: 3rem;
+    font-family: 'Franklin Gothic Medium';
+}
+
+#question-title {
+    /*background-color: cornflowerblue;*/
+    border: thin darkgray solid;
+    border-radius: 2rem;
+    padding: .5rem;
+    margin: .5rem;
+}
+
+#checkAnswer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#checkAnswer-btn {
+    padding: 2rem;
+}
+
+.option-body {
+    padding: 1rem;
     background-color: black;
-    color: aliceblue;
-    padding: 1rem;
-    border-radius: 10rem;
-    margin-bottom: 4rem;
-
-    text-align: center;
-
-}
-
-#title-2 {
-    background-color: yellow;
-    color: black;
-    border-radius: .2rem;
-    padding: .2rem;
-}
-
-
-#question-title{
-
-    padding: 1rem;
-    margin: 1rem;
-}
-
-
-#checkAnswer{
-
-    padding: 2rem;
-
-}
-
-
-.option-body{
-    padding: 1rem;
-    background-color: lightgray;
-
     display: block;
     width: 50%;
     max-width: 80%;
     min-width: 50%;
 }
 
-.opt-group{
-
+.opt-group {
     /*flex: 0 0 50px;*/
     flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
 }
 
-.opt{
+.opt-group:hover {
+    color: slateblue;
+}
 
+.opt {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
     padding: 1rem 2rem;
     margin: .2rem;
     border: thin salmon solid;
-
     transition-property: all;
     transition-duration: .5s;
 }
 
-
-.opt:hover{
-
+.opt:hover {
     background-color: cornflowerblue;
 }
 
-
-.opt-opt{
-
+.opt-opt {
     display: none;
 }
 
-.opt-opt:checked{
 
-    /*appearance: auto;*/
+/* .opt-opt:checked {
+    appearance: auto;
+} */
 
-}
-
-
-.opt-text{
-
+.opt-text {
     text-align: center;
-
     display: inline-block;
     width: 5rem;
     user-select: none;
-
     transition-property: all;
     transition-duration: .4s;
 }
 
-
-.opt-opt:checked ~ .opt-text{
-
+.opt-opt:checked~.opt-text {
     padding: 1rem;
-
 }
 
-
-
-.checked-opt{
-
+.checked-opt {
     background-color: pink;
 }
-
-
-
-
-
-
-
-
-
-
-
-

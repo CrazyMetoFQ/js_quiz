@@ -58,7 +58,7 @@ def q():
 @app.route("/ans")
 def ans():
 
-    return str(request.args['a'])
+    return str(request.args['i'])
     # return str([i for i in dir(request.args.values) if not i.startswith("__")])
 
 

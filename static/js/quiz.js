@@ -22,48 +22,41 @@ function getQuestion() {
 
 }
 
-class question {
+function question(q, opts, ans) {
 
-    constructor(q, opts, ans) {
+    // let q = q;
+    // let opts = opts;
+    // let ans = ans;
 
-        this.q = q;
-        this.opts = opts;
-        this.ans = ans;
+    if (typeof(ans) == typeof(1)) {
+        let answer = opts[ans];
+    } else if (typeof(ans) == typeof('') && opts.includes(ans)) {
 
-        if (typeof(ans) == typeof(1)) {
-            this.answer = opts[ans];
-        } else if (typeof(ans) == typeof('') && opts.includes(ans)) {
-
-            this.ans = opts.indexOf(ans);
-            this.answer = ans;
-        } else {
-            this.answer = null;
-        }
-
+        ans = opts.indexOf(ans);
+        answer = ans;
+    } else {
+        answer = null;
     }
 
-    check(g_ans) {
-
-        if (g_ans == self.answer) {
-
-            return true
-
-        } else {
-
-            return false
-        }
+    return {
+        "q": q,
+        "opts": opts,
+        "ans": ans,
+        "answer": answer
     }
 
 }
 
-q = new question("TITLE", [11, 21, 31, 41], 21)
+q = { "q": "TITLE", "opts": [11, 21, 31, 41], "ans": 21 }
 
-function loadQuestion(q_title, opts_array) {
+function loadQuestion(q_title, opts_array, id_is) {
 
     let qt = document.querySelector("#question-title");
 
     let opt_text = document.querySelectorAll(".opt-text");
     let opt_opt = document.querySelectorAll(".opt-opt");
+
+    document.querySelector("#question-id-id").textContent = id_is
 
     qt.textContent = q_title;
 
@@ -138,18 +131,14 @@ function reloadQuestion() {
 
     let qt = qs[0][0][0];
     let opts = qs[0][0][1];
-    let ans = qs[0][1];
+    let id_is = qs[0][1];
 
-
-    // console.log(qt)
-    // console.log(opts)
-
-    loadQuestion(qt, opts);
+    loadQuestion(qt, opts, id_is);
 
     bind2opts();
     // document.querySelector("#output").textContent = qs
 
-    let q = new question(qt, opts, ans)
+    let q = question(qt, opts, ans)
     return q
 
 }
@@ -157,8 +146,18 @@ function reloadQuestion() {
 
 function checkAnswer() {
 
-    console.log(q)
+    let id_is = document.querySelector("#question-id-id");
+
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.open("GET", `/ans?i=${id_is}`, false);
+    xhttp.send();
+
+    return xhttp.responseText
+
+
 }
+
 
 
 function sl() {
@@ -175,13 +174,13 @@ function sl2() {
 }
 
 
-// function main_fnc() {
+function main_fnc() {
 
-//     let q = reloadQuestion();
-//     loadQuestion(q.q, q.opts)
+    let q = reloadQuestion();
+    loadQuestion(q.q, q.opts)
 
-//     bind2opts();
-// }
+    bind2opts();
+}
 
 
 // document.onload = main_fnc()
@@ -191,3 +190,142 @@ var q = reloadQuestion();
 loadQuestion(q.q, q.opts)
 
 bind2opts();
+
+
+// class quiz {
+
+
+//     // static getQuestion() {
+
+//     //     // quiz args
+
+//     //     const xhttp = new XMLHttpRequest();
+
+//     //     xhttp.open("GET", "/q", false);
+//     //     xhttp.send();
+
+//     //     return JSON.parse(xhttp.responseText)
+
+//     // }
+
+
+//     // static reloadQuestion() {
+
+//     //     let qs = getQuestion()
+
+//     //     let qt = qs[0][0][0];
+//     //     let opts = qs[0][0][1];
+//     //     let ans = qs[0][1];
+
+//     //     loadQuestion(qt, opts);
+
+//     //     bind2opts();
+
+//     // }
+
+
+//     constructor() {
+//         console.log("start");
+
+//         q = reloadQuestion();
+//         loadQuestion(q.q, q.opts);
+
+//         bind2opts();
+
+
+
+//     }
+
+
+//     setVars() {
+
+//         this.qt = document.querySelector("#question-title");
+//         this.opt_text = document.querySelectorAll(".opt-text");
+//         this.opt_opt = document.querySelectorAll(".opt-opt");
+//         this.opts = document.querySelectorAll(".opt");
+
+//         this.nm = "opts";
+//         this.ql = `input[name=${this.nm}]:checked`;
+//         this.ans = document.querySelector(this.ql).value;
+//     }
+
+
+
+
+//     loadQuestion(q_title, opts_array) {
+
+//         this.qt.textContent = q_title;
+
+//         this.opt_text.forEach(function(element, index) {
+
+//             element.textContent = opts_array[index];
+//         });
+
+//         this.opt_opt.forEach(function(element, index) {
+
+//             element.value = opts_array[index];
+//         })
+
+//     }
+
+//     cbclr(el) {
+
+//         this.opts.forEach(function(element, index) {
+//             element.style.color = "inherit";
+//             element.style.backgroundColor = "inherit";
+//         })
+
+//         el.style.color = 'slateblue';
+//         el.style.backgroundColor = 'lightgray';
+
+
+//     }
+
+//     loadAnswer() {
+
+//         document.querySelector("#output").textContent = this.ans;
+
+//         return ans
+//     }
+
+
+//     bind2opts() {
+
+//         this.opt_opt.forEach(function(element, index) {
+
+//             element.addEventListener("click",
+//                 function() {
+//                     loadAnswer("opts");
+//                 })
+//         })
+
+
+//         // console.log(opts)
+
+//         this.opts.forEach(function(element, index) {
+
+//             element.addEventListener("click",
+//                 function() {
+//                     this.cbclr(element);
+//                 })
+//         })
+
+//     }
+
+
+
+
+
+
+
+//     checkAnswer() {
+
+//         console.log(q)
+//     }
+
+
+
+
+
+
+// }

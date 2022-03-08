@@ -13,68 +13,79 @@
 
 <body>
 
-    <div id="top-spacer"></div>
+    <!-- <div id="top-spacer"></div> -->
     <!-- <div id="tri" onclick="sl3()" onCopy="sl1()">Texsat</div> -->
-    <div id="main-container">
 
-        <div id="title">
-            <span id="title-1">Quiz</span>
-            <span id="title-2">Hub</span>
+    <div id="top-container">
+
+        <div id="header">
+            <div id="header-text" onclick="questionableChoice()">
+                <span id="header-text-1">Quiz</span>
+                <span id="header-text-2">Hub</span>
+            </div>
         </div>
 
-        <div id="form-custom">
+        <div id="main-container">
 
-            <div id="question-title"></div>
+            <div id="form-custom">
 
-            <div id="option-body">
-
-                <div class="opt-group">
-                    <label class="opt">
-                        <input type="radio" name="opts" class="opt-opt"/>
-                        <span class="opt-text" >1</span>
-                    </label>
+                <div id="question-id">
+                    #<span id="question-id-id"></span>
                 </div>
 
-                <div class="opt-group">
-                    <label class="opt">
-                        <input type="radio" name="opts" class="opt-opt" />
-                        <span class="opt-text" >2</span>
-                    </label>
-                </div>
+                <div id="question-title"></div>
 
-                <div class="opt-group">
-                    <label class="opt">
-                        <input type="radio" name="opts" class="opt-opt" />
-                        <span class="opt-text" >3</span>
-                    </label>
-                </div>
+                <div id="option-body">
 
-                <div class="opt-group">
-                    <label class="opt">
-                        <input type="radio" name="opts" class="opt-opt" />
-                        <span class="opt-text" >4</span>
-                    </label>
+                    <div class="opt-group">
+                        <label class="opt">
+                            <input type="radio" name="opts" class="opt-opt"/>
+                            <span class="opt-text" >1</span>
+                        </label>
+                    </div>
+
+                    <div class="opt-group">
+                        <label class="opt">
+                            <input type="radio" name="opts" class="opt-opt" />
+                            <span class="opt-text" >2</span>
+                        </label>
+                    </div>
+
+                    <div class="opt-group">
+                        <label class="opt">
+                            <input type="radio" name="opts" class="opt-opt" />
+                            <span class="opt-text" >3</span>
+                        </label>
+                    </div>
+
+                    <div class="opt-group">
+                        <label class="opt">
+                            <input type="radio" name="opts" class="opt-opt" />
+                            <span class="opt-text" >4</span>
+                        </label>
+                    </div>
+
                 </div>
 
             </div>
 
+            <div id="checkAnswer">
+                <button onclick="checkAnswer()" id="checkAnswer-btn">Check</button>
+                <span id="answer">Not Checed</span>
+            </div>
+
         </div>
+
 
         <div>
-            <button onclick="checkAnswer()" id="checkAnswer">Check</button>
-            <span id="answer">Not Checed</span>
+            <button onclick="reloadQuestion()" style="padding: 5rem;user-select: none;">Updata</button>
         </div>
 
+        <div id="output"></div>
     </div>
-
-
-    <div>
-        <button onclick="reloadQuestion()" style="padding: 5rem;user-select: none;">Updata</button>
-    </div>
-
-    <div id="output"></div>
 
     <script src="../static/js/quiz.js"></script>
+    <!-- <script src="../static/js/da_new_quiz.js"></script> -->
 
 </body>
 
