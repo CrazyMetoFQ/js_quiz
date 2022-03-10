@@ -30,7 +30,6 @@ a:active {
     text-decoration: none;
 }
 
-
 #header{
 
     display: flex;
@@ -44,14 +43,19 @@ a:active {
     height: 5vh;
     width: 99vw;
 
-    background-color: darkslategray;
+    background-color: black;
+/*     background-image: linear-gradient(
+      black, darkslategray) ;
+  
+    background-size: 200% 200%;
+    animation: gradient 30s ease-in-out infinite alternate; */
 
     color: white;
-    padding: 1rem;
+    padding: 1.5rem;
     font-size: 2rem;
-
+    font-family: Arial;
     /*border-top: thin slategray solid;*/
-    border-bottom: thick gray outset;
+    /* border-bottom: thick lightgray outset; */
 }
 
 
@@ -59,6 +63,7 @@ a:active {
     background-color: rgb(247,148,0);
     border-radius: 1rem;
     padding: .5rem;
+    color: black;
 }
 
 #main-container {

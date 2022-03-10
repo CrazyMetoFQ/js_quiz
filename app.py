@@ -1,6 +1,7 @@
 
 
 import json
+import os
 from random import randint
 
 from flask import Flask, render_template, request
@@ -10,9 +11,9 @@ app = Flask(__name__)
 
 class json_q:
 
-  def __init__(self):
+  def __init__(self, us = "general"):
       
-      with open("nv/static/general.json") as f:
+      with open(f"{os.getcwd()}/static/{us}.json") as f:
         self.st = json.load(f)
 
         self.ln = len(self.st)
@@ -58,11 +59,12 @@ def q():
 @app.route("/ans")
 def ans():
 
-    return str(request.args['i'])
-    # return str([i for i in dir(request.args.values) if not i.startswith("__")])
+    i = int(request.args['i'])
+    return json.dumps(jsq.st[i]["Correct"])
+
 
 
 if __name__ == '__main__':
-  app.run(host='127.0.0.1', port=5000, debug=True)
+  app.run(host='0.0.0.0', port=5000, debug=True)
  
  

@@ -13,18 +13,14 @@
 
 <body>
 
-    <!-- <div id="top-spacer"></div> -->
-    <!-- <div id="tri" onclick="sl3()" onCopy="sl1()">Texsat</div> -->
-
-    <div id="top-container">
-
         <div id="header">
-            <div id="header-text" onclick="questionableChoice()">
+            <div id="header-text" onclick="window.location.href = '/'">
                 <span id="header-text-1">Quiz</span>
                 <span id="header-text-2">Hub</span>
             </div>
         </div>
 
+      
         <div id="main-container">
 
             <div id="form-custom">
@@ -71,18 +67,18 @@
 
             <div id="checkAnswer">
                 <button onclick="checkAnswer()" id="checkAnswer-btn">Check</button>
-                <span id="answer">Not Checed</span>
+                <span id="answer">Not Answered</span>
             </div>
 
         </div>
 
 
-        <div>
-            <button onclick="reloadQuestion()" style="padding: 5rem;user-select: none;">Updata</button>
+        <div id="update">
+          <button onclick="reloadQuestion()" id="update-btn">Next</button>
         </div>
 
         <div id="output"></div>
-    </div>
+  
 
     <script src="../static/js/quiz.js"></script>
     <!-- <script src="../static/js/da_new_quiz.js"></script> -->

@@ -75,8 +75,13 @@ function loadQuestion(q_title, opts_array, id_is) {
 
 function loadAnswer(nm) {
 
-    ql = `input[name=${nm}]:checked`;
-    let ans = document.querySelector(ql).value;
+    let ans = document.querySelector(".opt-opt:checked");
+
+    try{
+      ans = ans.value;
+    } catch {
+      ans = null;
+    }
 
     document.querySelector("#output").textContent = ans;
 
@@ -114,13 +119,10 @@ function cbclr(el) {
     let opts = document.querySelectorAll(".opt");
 
     opts.forEach(function(element, index) {
-        element.style.color = "inherit";
-        element.style.backgroundColor = "inherit";
+        element.className = "opt";
     })
 
-    el.style.color = 'slateblue';
-    el.style.backgroundColor = 'lightgray';
-
+    el.className = "opt checked-opt";
 
 }
 
@@ -131,6 +133,7 @@ function reloadQuestion() {
 
     let qt = qs[0][0][0];
     let opts = qs[0][0][1];
+    let ans = qs[0][0][2]
     let id_is = qs[0][1];
 
     loadQuestion(qt, opts, id_is);
@@ -147,13 +150,37 @@ function reloadQuestion() {
 function checkAnswer() {
 
     let id_is = document.querySelector("#question-id-id");
-
+    id_is = id_is.textContent;
+    let g_ans = JSON.stringify(loadAnswer());
+    let ans = document.querySelector("#answer");
+  
     const xhttp = new XMLHttpRequest();
 
     xhttp.open("GET", `/ans?i=${id_is}`, false);
     xhttp.send();
 
-    return xhttp.responseText
+    let res = xhttp.responseText;
+
+    console.log(id_is);
+    console.log(res);
+    console.log(g_ans);
+
+    if (g_ans == res){
+      let mark = "Correct";
+      ans.textContent = mark;
+      ans.className = "answer-correct";
+      console.log("damn daniel");
+    }
+    else {
+      let mark = "Wrong";
+      ans.textContent = mark;
+      ans.className = "answer-wrong";
+      console.log("no way daniel");
+    }
+
+    
+    
+    return res 
 
 
 }
@@ -187,145 +214,5 @@ function main_fnc() {
 
 
 var q = reloadQuestion();
-loadQuestion(q.q, q.opts)
 
 bind2opts();
-
-
-// class quiz {
-
-
-//     // static getQuestion() {
-
-//     //     // quiz args
-
-//     //     const xhttp = new XMLHttpRequest();
-
-//     //     xhttp.open("GET", "/q", false);
-//     //     xhttp.send();
-
-//     //     return JSON.parse(xhttp.responseText)
-
-//     // }
-
-
-//     // static reloadQuestion() {
-
-//     //     let qs = getQuestion()
-
-//     //     let qt = qs[0][0][0];
-//     //     let opts = qs[0][0][1];
-//     //     let ans = qs[0][1];
-
-//     //     loadQuestion(qt, opts);
-
-//     //     bind2opts();
-
-//     // }
-
-
-//     constructor() {
-//         console.log("start");
-
-//         q = reloadQuestion();
-//         loadQuestion(q.q, q.opts);
-
-//         bind2opts();
-
-
-
-//     }
-
-
-//     setVars() {
-
-//         this.qt = document.querySelector("#question-title");
-//         this.opt_text = document.querySelectorAll(".opt-text");
-//         this.opt_opt = document.querySelectorAll(".opt-opt");
-//         this.opts = document.querySelectorAll(".opt");
-
-//         this.nm = "opts";
-//         this.ql = `input[name=${this.nm}]:checked`;
-//         this.ans = document.querySelector(this.ql).value;
-//     }
-
-
-
-
-//     loadQuestion(q_title, opts_array) {
-
-//         this.qt.textContent = q_title;
-
-//         this.opt_text.forEach(function(element, index) {
-
-//             element.textContent = opts_array[index];
-//         });
-
-//         this.opt_opt.forEach(function(element, index) {
-
-//             element.value = opts_array[index];
-//         })
-
-//     }
-
-//     cbclr(el) {
-
-//         this.opts.forEach(function(element, index) {
-//             element.style.color = "inherit";
-//             element.style.backgroundColor = "inherit";
-//         })
-
-//         el.style.color = 'slateblue';
-//         el.style.backgroundColor = 'lightgray';
-
-
-//     }
-
-//     loadAnswer() {
-
-//         document.querySelector("#output").textContent = this.ans;
-
-//         return ans
-//     }
-
-
-//     bind2opts() {
-
-//         this.opt_opt.forEach(function(element, index) {
-
-//             element.addEventListener("click",
-//                 function() {
-//                     loadAnswer("opts");
-//                 })
-//         })
-
-
-//         // console.log(opts)
-
-//         this.opts.forEach(function(element, index) {
-
-//             element.addEventListener("click",
-//                 function() {
-//                     this.cbclr(element);
-//                 })
-//         })
-
-//     }
-
-
-
-
-
-
-
-//     checkAnswer() {
-
-//         console.log(q)
-//     }
-
-
-
-
-
-
-// }
