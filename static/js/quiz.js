@@ -83,7 +83,7 @@ function loadAnswer(nm) {
       ans = null;
     }
 
-    document.querySelector("#output").textContent = ans;
+    // document.querySelector("#output").textContent = ans;
 
     return ans
 }
@@ -170,6 +170,8 @@ function checkAnswer() {
       ans.textContent = mark;
       ans.className = "answer-correct";
       console.log("damn daniel");
+      setScore()
+      
     }
     else {
       let mark = "Wrong";
@@ -186,18 +188,9 @@ function checkAnswer() {
 }
 
 
-
-function sl() {
-
-    console.log('click')
-    navigator.clipboard.writeText("wodasdasdasdasdah");
-
-}
-
-function sl2() {
-
-    window.open("http://google.com")
-
+function setScore() {
+    score = window.localStorage.score
+    window.localStorage.score = parseInt(score)+1    
 }
 
 
@@ -207,6 +200,8 @@ function main_fnc() {
     loadQuestion(q.q, q.opts)
 
     bind2opts();
+
+    window.localStorage.setItem("score", 0)
 }
 
 
@@ -216,3 +211,5 @@ function main_fnc() {
 var q = reloadQuestion();
 
 bind2opts();
+
+window.localStorage.setItem("score", 0);

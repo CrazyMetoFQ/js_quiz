@@ -8,8 +8,17 @@ html, body {
 }
 
 body{
-  background-color: gray;
+
+  background: linear-gradient(180deg, darkslategray, #5d5580);
+  background-size: 200% 200%;
+  animation: Animation 5s ease infinite alternate;
   overflow-y: auto;
+}
+
+@keyframes Animation {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
 }
 
 #top-spacer {
@@ -41,7 +50,7 @@ body{
   text-align:center;
   vertical-align:center;
   font-family: Arial;
-  margin-right: 30px;
+  margin-right: 50px;
   
 }
 
