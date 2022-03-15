@@ -26,6 +26,29 @@ body{
     margin: 5em;
 }
 
+
+#ScoreBoard{
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  z-index: 1;
+
+  color: white;
+  font-family: fantasy;
+  font-size: 3rem;
+
+}
+
+#ScoreText{
+  display: inline;
+}
+#Score{
+  display: inline;
+}
+
+
 #header {
 
   display: flex;
@@ -41,7 +64,6 @@ body{
   font-size: 2rem;
   
   background-color: black ;
-  
 
 }
 

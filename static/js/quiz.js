@@ -190,7 +190,16 @@ function checkAnswer() {
 
 function setScore() {
     score = window.localStorage.score
-    window.localStorage.score = parseInt(score)+1    
+    window.localStorage.score = parseInt(score)+1   
+
+    score = window.localStorage.score
+    document.querySelector("#Score").textContent = score
+
+    console.log(window.localStorage.score)
+    console.log(score)
+    console.log()
+    
+    
 }
 
 
@@ -207,7 +216,7 @@ function main_fnc() {
 
 // document.onload = main_fnc()
 
-
+document.querySelector("#Score").textContent = 0
 var q = reloadQuestion();
 
 bind2opts();

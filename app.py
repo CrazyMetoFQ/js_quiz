@@ -4,8 +4,10 @@ import os
 from flask import Flask, render_template, request
 
 from quiz import json_q
+from forms import MyForm
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard to guess string'
 
 jsqd = json_q()
 
@@ -16,13 +18,27 @@ qzs = os.listdir(f"{os.getcwd()}/static/custum_quizzes")
 def index():
     return render_template('index.html')
 
-@app.route("/settings")
-def settings():
-    return render_template("settings.html")
-
 @app.route('/quiz')
 def play():
     return render_template('quiz.html')
+
+
+@app.route("/settings")
+def settings():
+    return render_template("settings_home.html")
+
+@app.route("/make", methods=['GET', 'POST'])
+def make():
+
+  name = None
+  form = MyForm()
+  
+  if form.submit():
+
+    # PROCESSING
+    name = form.quizName.data
+    
+  return render_template('make.html', form=form, name=name)
 
 @app.route('/q')
 def q():
@@ -62,6 +78,6 @@ def ans():
 
 
 if __name__ == '__main__':
-  app.run(port=5000, debug=True)
-#  host='0.0.0.0', 
+  app.run(port=5000, debug=True,
+ host='0.0.0.0')
  

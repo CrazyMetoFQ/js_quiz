@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/styles/quiz.css">
+
+    <title>Quiz</title>
+</head>
+
+<body>
+
+        <div id="header">
+            <div id="header-text" onclick="window.location.href = '/'">
+                <span id="header-text-1">Quiz</span>
+                <span id="header-text-2">Hub</span>
+            </div>
+        </div>
+
+      
+        <div id="main-container">
+
+            <div id="form-custom">
+
+              
+              <div id="form">
+                <form method="POST" action="">
+                  
+                  {{ form.hidden_tag() }}
+                  
+                  {{ form.quizName.label }} 
+                  {{ form.quizName() }}
+
+                  {{ form.quizName.label }} 
+                  {{ form.quizName() }}
+
+                  {{ form.quizName.label }} 
+                  {{ form.quizName() }}
+
+                  {{form.submit}}
+                  
+                </form>
+              </div>
+              <div id="out">
+                <p>{{name}}</p>
+              </div>
+
+            </div>
+
+            </div>
+
+        <div id="output"></div>
+
+</body>
+
+</html>
+
+
