@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/styles/choose.css">
+
+    <title>Make Quiz</title>
+</head>
+
+<body>
+
+        <div id="header">
+            <div id="header-text" onclick="window.location.href = '/'">
+                <span id="header-text-1">Quiz</span>
+                <span id="header-text-2">Hub</span>
+            </div>
+        </div>
+
+      
+        <div id="main-container">
+
+          <div id="form-custom">
+
+            <div id="form-cnt">
+              <form method="POST" action="" id="form">
+
+                {{ form.hidden_tag() }}
+
+                <div class="opt-cnt">
+                  {% for subfield in form.rf %}
+                    <div class="opt-grp">
+                        {{ subfield }}
+                        {{ subfield.label }}
+                    </div>
+                  {% endfor %}
+                </div>
+
+                <div>
+                  {{form.submit}}
+                </div>
+                
+              </form>
+
+              <div id="out">
+                <p>{{choce}}</p>
+              </div>
+              
+            </div>
+            
+
+
+          </div>
+
+        </div>
+
+</body>
+
+</html>
+
+

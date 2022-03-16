@@ -213,6 +213,15 @@ function main_fnc() {
     window.localStorage.setItem("score", 0)
 }
 
+function resetQuestion(params) {
+  console.log(1212123231232);
+
+  document.querySelector(".checked-opt").classList.remove("checked-opt");
+  document.querySelector("#answer").className = "";
+  document.querySelector("#answer").textContent = "Not Answer";
+
+  
+}
 
 // document.onload = main_fnc()
 

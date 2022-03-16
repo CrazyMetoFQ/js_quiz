@@ -1,0 +1,111 @@
+
+html, body {
+  width:100%;
+  height:100%;
+  overflow: hidden;
+  background-color: black;
+  user-select: none;
+}
+
+body{
+
+  background: linear-gradient(180deg, darkslategray, #5d5580);
+  background-size: 200% 200%;
+  animation: Animation 5s ease infinite alternate;
+  overflow-y: auto;
+}
+
+@keyframes Animation {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
+}
+
+#top-spacer {
+    padding: 5em;
+    margin: 5em;
+}
+
+#header {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  width: 100vw;
+
+  transform: translateY(-10px);
+
+  margin-bottom: 2rem;
+  color: white;
+  font-size: 2rem;
+  
+  background-color: black ;
+  
+
+}
+
+#header-text{
+
+  text-align:center;
+  vertical-align:center;
+  font-family: Arial;
+  margin-right: 50px;
+  
+}
+
+#header-text-2 {
+    background-color: #F7971F;
+    border-radius: 1rem;
+    padding: .5em;
+    color: black;
+}
+
+#main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  margin: auto;
+  background: blanchedalmond;
+  border-radius: 3rem;
+}
+
+#form-custom {
+
+  padding: 1rem;
+  margin: .7rem;
+  
+}
+
+#form{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.opt-grp{
+  padding: 1rem;
+  
+}
+
+input[type="submit"]{
+  margin: 1rem;
+  padding: 1rem;
+  background-color: cornflowerblue;
+  border: thin gray solid;
+  color: white;
+  transition: all .5s;
+}
+
+input[type="submit"]:hover{
+  padding: 2rem;
+  background-color: tomato;
+}
+
+#output{
+  background: inherit;
+}

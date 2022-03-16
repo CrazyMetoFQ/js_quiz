@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../static/styles/quiz.css">
+    <link rel="stylesheet" href="../static/styles/make.css">
 
-    <title>Quiz</title>
+    <title>Make Quiz</title>
 </head>
 
 <body>
@@ -26,21 +26,50 @@
             <div id="form-custom">
 
               
-              <div id="form">
-                <form method="POST" action="">
-                  
+              <div id="form-cnt">
+                <form method="POST" action="" id="form">
+
+                  <div class="input-grp">
                   {{ form.hidden_tag() }}
-                  
-                  {{ form.quizName.label }} 
-                  {{ form.quizName() }}
 
-                  {{ form.quizName.label }} 
-                  {{ form.quizName() }}
+                  <div class="input-grp">
+                    {{ form.quizName.label }} 
+                    {{ form.quizName() }}
+                  </div>
 
-                  {{ form.quizName.label }} 
-                  {{ form.quizName() }}
+                  <div class="input-grp">
+                    {{ form.q.label }} 
+                    {{ form.q() }}
+                  </div>
 
-                  {{form.submit}}
+                  <div class="input-grp">
+                    {{ form.opt1.label }} 
+                    {{ form.opt1() }}
+                  </div>
+
+                  <div class="input-grp">
+                    {{ form.opt2.label }} 
+                    {{ form.opt2() }}
+                  </div>
+
+                  <div class="input-grp">
+                    {{ form.opt3.label }} 
+                    {{ form.opt3() }}
+                  </div>
+
+                  <div class="input-grp">
+                    {{ form.opt4.label }} 
+                    {{ form.opt4() }}
+                  </div>
+
+                  <div class="input-grp">
+                    {{ form.ans.label }} 
+                    {{ form.ans() }}
+                  </div>
+
+                  <div class="input-grp">
+                    {{form.submit}}
+                  </div>
                   
                 </form>
               </div>
@@ -49,10 +78,6 @@
               </div>
 
             </div>
-
-            </div>
-
-        <div id="output"></div>
 
 </body>
 
