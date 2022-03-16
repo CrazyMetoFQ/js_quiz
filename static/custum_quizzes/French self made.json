@@ -1,0 +1,89 @@
+[{
+        "Questions": "Elle .....................cinq chats",
+        "A": " a",
+        "B": "ai",
+        "C": "avons",
+        "D": "avez",
+        "Correct": "a"
+    },
+    {
+        "Questions": "Ils .....................une voiture",
+        "A": " avez",
+        "B": "ai",
+        "C": "avons",
+        "D": "ont",
+        "Correct": "ont"
+    },
+    {
+        "Questions": "Ils .....................une voiture",
+        "A": " avez",
+        "B": "ai",
+        "C": "avons",
+        "D": "ont",
+        "Correct": "ont"
+    },
+    {
+        "Questions": "Ils .....................une voiture",
+        "A": " avez",
+        "B": "ai",
+        "C": "avons",
+        "D": "ont",
+        "Correct": "avez"
+    },
+    {
+        "Questions": "Vous .....................un cheval",
+        "A": " avez",
+        "B": "ai",
+        "C": "avons",
+        "D": "ont",
+        "Correct": "avez"
+    },
+    {
+        "Questions": "Nous .....................des amis Fran\u00e7ais.",
+        "A": " avez",
+        "B": "ai",
+        "C": "avons",
+        "D": "ont",
+        "Correct": "avons"
+    },
+    {
+        "Questions": "A rabbit means .......................",
+        "A": " une souris",
+        "B": "un lion",
+        "C": "une vache",
+        "D": "un lapin",
+        "Correct": "un lapin"
+    },
+    {
+        "Questions": "A turtle means .......................",
+        "A": " une souris",
+        "B": "un lion",
+        "C": "Une tortue",
+        "D": "Des animaux",
+        "Correct": "Une tortue"
+    },
+    {
+        "Questions": "A mice",
+        "A": " une souris",
+        "B": "un lion",
+        "C": "Une tortue",
+        "D": "Des animaux",
+        "Correct": " une souris"
+    },
+    {
+        "Questions": "A cow",
+        "A": " une souris",
+        "B": "un lion",
+        "C": "une vache",
+        "D": "un dauphin",
+        "Correct": "une vache"
+    },
+    {
+        "Questions": "A horse",
+        "A": " une souris",
+        "B": "un cheval",
+        "C": "une vache",
+        "D": "un dauphin",
+        "Correct": "un cheval"
+    }
+]
